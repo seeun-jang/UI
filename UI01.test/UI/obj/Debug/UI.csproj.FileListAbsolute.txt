@@ -1,0 +1,7 @@
+D:\UI\UI\UI\bin\Debug\UI.exe.config
+D:\UI\UI\UI\bin\Debug\UI.exe
+D:\UI\UI\UI\bin\Debug\UI.pdb
+D:\UI\UI\UI\obj\Debug\UI.csproj.AssemblyReference.cache
+D:\UI\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+D:\UI\UI\UI\obj\Debug\UI.exe
+D:\UI\UI\UI\obj\Debug\UI.pdb

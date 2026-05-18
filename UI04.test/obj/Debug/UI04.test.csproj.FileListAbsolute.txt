@@ -1,0 +1,7 @@
+D:\UI\UI04.test\bin\Debug\UI04.test.exe.config
+D:\UI\UI04.test\bin\Debug\UI04.test.exe
+D:\UI\UI04.test\bin\Debug\UI04.test.pdb
+D:\UI\UI04.test\obj\Debug\UI04.test.csproj.AssemblyReference.cache
+D:\UI\UI04.test\obj\Debug\UI04.test.csproj.CoreCompileInputs.cache
+D:\UI\UI04.test\obj\Debug\UI04.test.exe
+D:\UI\UI04.test\obj\Debug\UI04.test.pdb
