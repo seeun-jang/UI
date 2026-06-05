@@ -1,0 +1,13 @@
+D:\UI\PCLTest02\bin\Debug\PCLTest02.exe.config
+D:\UI\PCLTest02\bin\Debug\PCLTest02.exe
+D:\UI\PCLTest02\bin\Debug\PCLTest02.pdb
+D:\UI\PCLTest02\bin\Debug\ACTMULTILIB_K.dll
+D:\UI\PCLTest02\bin\Debug\ACTMULTILIB_K.pdb
+D:\UI\PCLTest02\obj\Debug\PCLTest02.csproj.AssemblyReference.cache
+D:\UI\PCLTest02\obj\Debug\PCLTest02.Form1.resources
+D:\UI\PCLTest02\obj\Debug\PCLTest02.Properties.Resources.resources
+D:\UI\PCLTest02\obj\Debug\PCLTest02.csproj.GenerateResource.cache
+D:\UI\PCLTest02\obj\Debug\PCLTest02.csproj.CoreCompileInputs.cache
+D:\UI\PCLTest02\obj\Debug\PCLTest02.csproj.Up2Date
+D:\UI\PCLTest02\obj\Debug\PCLTest02.exe
+D:\UI\PCLTest02\obj\Debug\PCLTest02.pdb

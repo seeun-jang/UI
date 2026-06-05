@@ -1,0 +1,13 @@
+D:\UI\PLCTest1\bin\Debug\PLCTest1.exe.config
+D:\UI\PLCTest1\bin\Debug\PLCTest1.exe
+D:\UI\PLCTest1\bin\Debug\PLCTest1.pdb
+D:\UI\PLCTest1\bin\Debug\ACTMULTILIB_K.dll
+D:\UI\PLCTest1\bin\Debug\ACTMULTILIB_K.pdb
+D:\UI\PLCTest1\obj\Debug\PLCTest1.csproj.AssemblyReference.cache
+D:\UI\PLCTest1\obj\Debug\PLCTest1.Form1.resources
+D:\UI\PLCTest1\obj\Debug\PLCTest1.Properties.Resources.resources
+D:\UI\PLCTest1\obj\Debug\PLCTest1.csproj.GenerateResource.cache
+D:\UI\PLCTest1\obj\Debug\PLCTest1.csproj.CoreCompileInputs.cache
+D:\UI\PLCTest1\obj\Debug\PLCTest1.csproj.Up2Date
+D:\UI\PLCTest1\obj\Debug\PLCTest1.exe
+D:\UI\PLCTest1\obj\Debug\PLCTest1.pdb

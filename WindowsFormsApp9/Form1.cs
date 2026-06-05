@@ -7,7 +7,7 @@ namespace WindowsFormsApp9
     {
         private Timer chartTimer;
         private Random random;
-
+        Random rnd = new Random();
         public Form1()
         {
             InitializeComponent();
@@ -31,16 +31,32 @@ namespace WindowsFormsApp9
         // 타이머 이벤트
         private void ChartTimer_Tick(object sender, EventArgs e)
         {
-            // 0~10 사이의 난수 생성
-            double randomValue = random.NextDouble() * 10;
+            int randomValue = rnd.Next(0, 11); int randomValue2 = rnd.Next(0, 11);
 
-            // 흘러가는 효과
             if (chart1.Series[0].Points.Count > 50)
+
             {
+
                 chart1.Series[0].Points.RemoveAt(0);
+
             }
 
-            chart1.Series[0].Points.AddXY(DateTime.Now.ToString("mm:ss.f"), randomValue);
+
+            chart1.Series[0].Points.AddXY(DateTime.Now.ToString("ss.f"), randomValue);
+
+            chart1.ChartAreas[0].RecalculateAxesScale();
+
+            if (chart1.Series[1].Points.Count > 50)
+
+            {
+
+                chart1.Series[1].Points.RemoveAt(0);
+
+            }
+
+
+            chart1.Series[1].Points.AddXY(DateTime.Now.ToString("ss.f"), randomValue2);
+
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
@@ -71,5 +87,6 @@ namespace WindowsFormsApp9
         {
             chartTimer.Stop();
         }
+ 
     }
 }
