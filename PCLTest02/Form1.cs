@@ -30,7 +30,12 @@ namespace PCLTest02
             label1.Text = "초기상태";
             label2.Text = "2601110299 장세은";
 
-            timer1.Interval = 500; // 너무 느리면 반응 답답해서 0.5초
+            // Timer 이벤트가 중복 연결되는 것을 방지
+            timer1.Tick -= timer1_Tick;
+            timer1.Tick -= timer1_Tick_1;
+            timer1.Tick += timer1_Tick;
+
+            timer1.Interval = 1000; // 1초마다 센서 데이터 읽기
             timer1.Enabled = false;
 
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -63,6 +68,7 @@ namespace PCLTest02
             chart1.ChartAreas["ChartArea1"].AxisX.Maximum = 8;
             chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
 
+            // 교수님 예시처럼 Y축은 0~100으로 표시
             chart1.ChartAreas["ChartArea1"].AxisY.Minimum = 0;
             chart1.ChartAreas["ChartArea1"].AxisY.Maximum = 100;
             chart1.ChartAreas["ChartArea1"].AxisY.Interval = 20;
@@ -130,7 +136,7 @@ namespace PCLTest02
             isAutoMode = true;
             timer1.Enabled = true;
 
-            // 시작 누르면 무조건 전진부터
+            // 자동 운전은 전진부터 시작
             Forward();
 
             label1.Text = "자동 운전 시작";
@@ -147,14 +153,16 @@ namespace PCLTest02
             label1.Text = "정지";
         }
 
+        // Timer는 이 함수 하나만 사용
         private void timer1_Tick(object sender, EventArgs e)
         {
             RunTimerLogic();
         }
 
+        // 디자이너에 남아 있을 수 있어서 삭제하지 않고 비워둠
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            RunTimerLogic();
+
         }
 
         private void RunTimerLogic()
@@ -175,13 +183,13 @@ namespace PCLTest02
 
             if (isAutoMode)
             {
-                // 현재 전진 중이고 전진 센서에 닿으면 후진
+                // 전진 중 전진 센서가 감지되면 후진
                 if (currentState == 1 && forwardSensor)
                 {
                     Backward();
                     label1.Text = "전진 완료 → 후진 / 센서값: " + sensor.ToString();
                 }
-                // 현재 후진 중이고 후진 센서에 닿으면 전진
+                // 후진 중 후진 센서가 감지되면 전진
                 else if (currentState == 0 && backwardSensor)
                 {
                     Forward();
@@ -219,6 +227,7 @@ namespace PCLTest02
                 }
             }
 
+            // 현재 상태에 따라 이미지와 차트 변경
             if (currentState == 1)
             {
                 pictureBox2.Image = Properties.Resources.cylinderon;
@@ -244,7 +253,7 @@ namespace PCLTest02
 
         private void Forward()
         {
-            // Y01 = 전진
+            // Y01 = 전진 출력
             short value = 0x01 << 1;
             int result = control.WriteDeviceBlock2("Y0", 1, ref value);
 
@@ -260,7 +269,7 @@ namespace PCLTest02
 
         private void Backward()
         {
-            // Y02 = 후진
+            // Y02 = 후진 출력
             short value = 0x01 << 2;
             int result = control.WriteDeviceBlock2("Y0", 1, ref value);
 
@@ -296,6 +305,8 @@ namespace PCLTest02
 
             int chartValue;
 
+            // 내부 상태값은 전진 1, 후진 0으로 구분
+            // 차트에서는 보기 좋게 전진 100, 후진 0으로 표시
             if (value == 1)
             {
                 chartValue = 100;
@@ -307,6 +318,7 @@ namespace PCLTest02
 
             series.Points.AddY(chartValue);
 
+            // 최근 8개 값만 남겨서 차트가 흘러가듯이 보이게 함
             if (series.Points.Count > 8)
             {
                 series.Points.RemoveAt(0);
